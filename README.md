@@ -7,7 +7,7 @@ Application state management with useReducer and useContext hooks
 
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This template provides a minimal setup to get React working in Vite with HMR.
 
 Currently, two official plugins are available:
 
