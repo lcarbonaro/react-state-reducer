@@ -1,0 +1,22 @@
+* {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.2rem;
+}
+.menu {
+  list-style-type: none;
+  display:flex;  
+}
+
+.menu-item {
+  float: left;
+  padding: 10px;
+}
+
+.prod-image {
+  width: 100px; 
+}
+
+
+.prod-image-small {
+  width: 50px; 
+}
