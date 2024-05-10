@@ -6,13 +6,13 @@ const CartDispatchContext = createContext(null);
 
 // eslint-disable-next-line react/prop-types
 export function CartProvider({ children }) {
-  const [tasks, dispatch] = useReducer(
+  const [cart, dispatch] = useReducer(
     cartReducer,
     initialCart
   );
 
   return (
-    <CartContext.Provider value={tasks}>
+    <CartContext.Provider value={cart}>
       <CartDispatchContext.Provider value={dispatch}>
         {children}
       </CartDispatchContext.Provider>
