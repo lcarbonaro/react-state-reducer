@@ -18,8 +18,13 @@ function Cart() {
         {cart.map(product => (
             <div key={product.id}>
                 <p><img className="prod-image-small" src={product.image} alt={product.description} /></p>
-                <p>{product.title} @ ${product.price}</p>
-                <p>Qty: {product.qty}  Total: ${ product.qty * product.price }</p>                
+                <p>{product.title} @ ${product.price}</p>                
+                <p>
+                  Qty:{product.qty} &nbsp;
+                  <button onClick={() => dispatch({ type: 'INC_QTY', id:product.id }) }>+</button> &nbsp;
+                  <button onClick={() => dispatch({ type: 'DEC_QTY', id:product.id }) }>-</button> &nbsp; 
+                  Sub-total:${product.qty * product.price}
+                </p>
                 <button onClick={() => dispatch({ type: 'REMOVE_PRODUCT', id:product.id }) }>Remove</button>
             </div>
         ))}

@@ -33,11 +33,38 @@ export function useCartDispatch() {
 function cartReducer(cart, action) {
   switch (action.type) {
     case 'ADD_PRODUCT':
-        return [...cart, action ];
-      case 'REMOVE_PRODUCT':
-        return cart.filter((p) => p.id !== action.id);
-      case 'CLEAR_CART':
-        return [];
+      let items;
+      if( cart.filter(p=>p.id===action.id).length === 0) {
+        items = [ ...cart, action ];
+      } else {
+        items = [ ...cart ];
+      }
+      return items;
+    case 'REMOVE_PRODUCT':
+      return cart.filter((p) => p.id !== action.id);
+    case 'CLEAR_CART':
+      return [];
+
+    case 'INC_QTY':
+      let incCart = [...cart];
+      return incCart.map( function(p) {
+        if(p.id === action.id) {
+          // was: p.qty++
+          return {...p, qty:p.qty + 1};        
+        } 
+        return p;
+      });            
+
+    case 'DEC_QTY':
+      let decCart = [...cart];
+      return decCart.map( function(p) {
+        if(p.id === action.id) {
+          //was: p.qty = p.qty > 1 ? p.qty - 1 : p.qty;           
+          return {...p, qty:p.qty > 1 ? p.qty - 1 : p.qty };
+        } 
+        return p;
+      });
+      
     default: {
       throw Error('Unknown action: ' + action.type);
     }
