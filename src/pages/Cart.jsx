@@ -10,6 +10,7 @@ function Cart() {
       <div>
         <p>Shopping Cart</p>
         <p>You have {cart.length} product(s) in your cart.</p>
+        <p>Cart Total:${ cart.reduce((t,p)=>t+=(p.qty*p.price),0) }</p>
 
         
         {cart.length>0 ? <button onClick={()=>dispatch({ type: 'CLEAR_CART'})}>Clear Cart</button> : ''}
