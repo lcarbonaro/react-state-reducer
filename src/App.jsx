@@ -14,7 +14,7 @@ function App() {
         <BrowserRouter>
             <ul className="menu">
                 <li className="menu-item">
-                    <Link to="/">Shop</Link>
+                    <Link to="/">Shop</Link>&nbsp;|&nbsp;
                 </li>
                 <li className="menu-item" >
                     <Link to="/cart">Cart</Link>
